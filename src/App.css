@@ -27,6 +27,149 @@
 .App-link {
   color: #61dafb;
 }
+.forum__heading{
+  color: #0e3e78;
+  margin: 50px;
+  font-size: 25px;
+}
+body{
+  background-color: 
+  #f5f5f5;
+}
+.logo{
+  font-weight: 700;
+  font-size: 40px;
+  font-family: Mont;
+  color: #79aa00;
+  margin: 0;
+  margin-left: 30px;
+  padding: 20px;
+}
+.top__bar{
+  background-color: white;
+}
+.round__image{
+    border-radius: 50%;
+}
+img {
+  border-radius: 50%;
+}
+.blue__button{
+  background-color: #0e3e78 !important;
+  border-radius: 0 !important;
+  outline: #0e3e78 !important;
+  font-size: 10px !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+.side__card__item{
+  font-size: 10px;
+  margin-top: 5px;
+}
+.spacing__top{
+  margin-top: 20px;
+}
+.spacing__top__smalll{
+  margin-top: 13px;
+}
+.topic_description{
+  height: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+.dark__button{
+  background-color: #343434 !important;
+  border-radius: 0 !important;
+  outline:  #343434 !important;
+  font-size: 10px !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+.green__button{
+  background-color: #79aa00 !important;
+  border-radius: 0 !important;
+  outline:  #79aa00 !important;
+  font-size: 10px !important;
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+.form__size{
+  width: 76%;
+}
+.title__text{
+  color: #ffffff;
+}
+.title__container{
+  background: #b9b9b9 !important;
+  border-radius: 0px !important;
+}
+.card-body {
+  width: 100% !important;
+}
+.card__comment{
+
+}
+.comments__layout{
+  display: flex;
+}
+.icon__top__spacing{
+  margin-top: 5px;
+  margin-right: 5px;
+}
+.hr__spacing{
+  margin: 0px;
+  padding: 0px;
+}
+.reply{
+  margin-top: 5px;
+  font-size: 12px;
+}
+.profile__icon__small{
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+}
+.profile__icon__large{
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  background: #0e3e78 ;
+}
+.profile__text{
+  margin: 0px !important;
+    text-align: center;
+    font-size: 30px;
+    text-transform: capitalize;
+    color: white;
+    font-weight: bold;
+}
+.large__text{
+  font-size: 60px;
+}
+.comments{
+  display: flex;
+}
+.tag__background{
+  border-radius: 10%;
+  height: 20px;
+  width: 50px;
+  margin: 5px;
+}
+.tag__text{
+  margin: 0px !important;
+    text-align: center;
+    font-size: 12px;
+    color: white;
+    font-weight: bold;
+}
+.forum{
+  max-width: 1000px;
+  margin: 0px auto;
+}
+
 
 @keyframes App-logo-spin {
   from {
