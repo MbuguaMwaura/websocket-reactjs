@@ -13,5 +13,5 @@ there are two main routes in the app
  2. /chat/{id} - this is the chat page that contains the discussion chat. The id is essentially to fetch all the relevant data.
 
 
-Code explanation is included in my article : 
+Code explanation is included in the article : 
 https://helptechcommunity.wordpress.com/2020/01/28/websocket-chat-application-using-spring-boot-and-react-js/

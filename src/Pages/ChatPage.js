@@ -1,3 +1,7 @@
+import 'emoji-mart/css/emoji-mart.css'
+import { Picker,emojiIndex } from 'emoji-mart'
+import { Smile } from 'react-feather';
+import ReactTextareaAutocomplete from '@webscopeio/react-textarea-autocomplete';
 import React, { Component } from 'react';
 import SockJsClient from 'react-stomp';
 import '../App.css';
@@ -12,7 +16,8 @@ import '../App.css';
 import axios from "axios";
 var randomColor = require('randomcolor');
 const apiUrl = "http://localhost:8080"
-const token = "b529c4ee-a335-451b-9ec9-2698843f640d"
+const token = "c84a7f88-12b5-4fc5-9b94-d6006dcf9737"
+
 
 class Chat extends Component {
 
@@ -28,7 +33,8 @@ class Chat extends Component {
             commentNumber: 0,
             creatorName:"",
             discussionId:0,
-            conversationColor:null
+            conversationColor:null,
+            showEmojis: false
         }
     }
 
@@ -160,6 +166,18 @@ class Chat extends Component {
     getCommentsNumber = () =>{
         
     }
+    addEmoji = e => {
+        console.log(e.native)
+        let emoji = e.native;
+        this.setState({
+            typedMessage: this.state.typedMessage +" " +emoji,
+            showEmojis : false
+        });
+      };
+    
+    pickEmoji = () => {
+        this.setState({showEmojis: !this.state.showEmojis})
+    }
 
     displayMessages = () => {
         let style = {background:this.state.conversationColor}
@@ -247,9 +265,56 @@ class Chat extends Component {
                                         </div>
                                         <Form className="form__size spacing__top">
                                             <Form.Group controlId="exampleForm.ControlTextarea1">
-                                                <Form.Control as="textarea" rows={4} placeholder="Type here to reply" onChange={(event) => {
-                                               this.setState({typedMessage: event.target.value});
-                                           }}/>
+                                           
+                                            <ReactTextareaAutocomplete
+                                                style={{width: '-webkit-fill-available'}}
+                                                className="message-input"
+                                                name="newMessage"
+                                                value={this.state.typedMessage}
+                                                loadingComponent={() => <span>Loading</span>}
+                                             
+                                                onChange={(event) => {
+                                                    this.setState({typedMessage: event.target.value});
+                                                }}
+                                                placeholder="Type here to reply"
+                                                trigger={{
+                                                ':': {
+                                                    dataProvider: token =>
+                                                    emojiIndex.search(token).map(o => ({
+                                                        colons: o.colons,
+                                                        native: o.native,
+                                                    })),
+                                                    component: ({ entity: { native, colons } }) => (
+                                                    <div>{`${colons} ${native}`}</div>
+                                                    ),
+                                                    output: item => `${item.native}`,
+                                                },
+                                                }}
+                                            />
+                                             <button
+                                                type="button"
+                                                className="toggle-emoji"
+                                                onClick={this.pickEmoji}
+                                            >
+                                                <Smile />
+                                            </button>
+                                                {/* <Form.Control as="textarea" rows={4} placeholder="Type here to reply" value={this.state.typedMessage} /> */}
+
+                                           
+                                               
+                                               <span>
+                                                   { 
+                                               this.state.showEmojis ?
+                                              
+                                           
+                                               <Picker onSelect={this.addEmoji} />
+                                                   : 
+                                               <></>
+                                            }
+                                               </span> 
+
+                                        
+                                          
                                             </Form.Group>
                                         </Form>
                                         <Button  onClick={this.sendMessage}className="green__button">Post Comment</Button>
